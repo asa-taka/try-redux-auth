@@ -1,6 +1,6 @@
-import * as actions from './actions'
-import * as reducer from './reducer'
+export { default as LoginButton } from './LoginButton'
+export { default as LogoutButton } from './LogoutButton'
+export { default as LoginWidget } from './LoginWidget'
 
-export {
-  actions, reducer,
-}
+export { default as actions } from './actions'
+export { default as reducer } from './reducer'

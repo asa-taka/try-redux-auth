@@ -1,8 +1,8 @@
 import React from 'react';
-import { LoginButton } from '../LoginButton';
+import { LogoutButton } from '../LogoutButton';
 
 import { renderWithProvider } from '../test-helper'
 
 it('renders without crashing', () => {
-  renderWithProvider(<LoginButton />)
+  renderWithProvider(<LogoutButton />)
 });
