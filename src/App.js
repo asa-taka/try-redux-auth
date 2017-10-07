@@ -5,12 +5,12 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import { Iterable } from 'immutable'
-import * as auth from './providers/auth'
 
-import { LoginWidget } from './components'
+import authReducer from './auth/reducer'
+import LoginWidget from './auth/LoginWidget'
 
 const reducer = combineReducers({
-  auth: auth.reducer
+  auth: authReducer
 })
 
 const logger = createLogger({
