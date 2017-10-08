@@ -5,20 +5,31 @@ describe('reducer', () => {
 
   const { auth, unauth } = actions
 
+  const doActions = (...actions) => {
+    return actions.reduce((s, act) => reducer(s, act), undefined)
+  }
+
   it('should return the initial state', () => {
+    const res = reducer(undefined, {})
     const expected = { login: false }
-    expect(reducer(undefined, {}).toJS()).toEqual(expected)
+    expect(res.toJS()).toEqual(expected)
   })
 
   it('should return the authed state, after auth', () => {
-    const action = auth('some-user')
+    const res = doActions(auth('some-user'))
     const expected = { login: true, user: 'some-user' }
-    expect(reducer(undefined, action).toJS()).toEqual(expected)
+    expect(res.toJS()).toEqual(expected)
   })
 
   it('should return the unauthed state, after unauth', () => {
-    const action = unauth()
+    const res = doActions(unauth())
     const expected = { login: false, user: undefined }
-    expect(reducer(undefined, action).toJS()).toEqual(expected)
+    expect(res.toJS()).toEqual(expected)
+  })
+
+  it('should return the unauthed state, after unauth', () => {
+    const res = doActions(auth('some-user'), unauth())
+    const expected = { login: false, user: undefined }
+    expect(res.toJS()).toEqual(expected)
   })
 })
