@@ -1,6 +1,6 @@
 import { Map } from 'immutable'
 
-import { createActions, handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions'
 
 import actions from './actions'
 

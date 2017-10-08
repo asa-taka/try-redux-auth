@@ -4,10 +4,11 @@ import './App.css';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
+import { Container } from 'reactstrap'
 import { Iterable } from 'immutable'
 
+import AppHeader from './AppHeader'
 import authReducer from './auth/reducer'
-import LoginWidget from './auth/LoginWidget'
 
 const reducer = combineReducers({
   auth: authReducer
@@ -34,7 +35,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <LoginWidget />
+          <AppHeader />
+          <Container>
+            some contents
+          </Container>
         </div>
       </Provider>
     )
